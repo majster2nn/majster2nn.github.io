@@ -1,0 +1,57 @@
+<!doctype html>
+
+<html lang="pl">
+	<head>
+		<meta charset="utf-8">
+		<title>STRONA SZABLON</title>
+		<meta name="description" content="szkoła, lekcje, temat, nauka, html">
+		<meta name="keywords" content="szkoła, lekcje, temat, nauka, html">
+		<meta name="author" content="Stanisław Dereń">
+	</head>
+
+	<body>
+		<input name="Imie" >Podaj swoje imię<br>
+		<input name="Nazwisko" >Podaj swoje nazwisko<br>
+		
+		Podaj swoją płeć
+		<input type="radio" name="plec" value="mezczyzna" >mężczyzna
+		<input type="radio" name="plec" value="kobieta" >kobieta
+		
+		<br>Ile masz lat? <br>
+		<input type="radio" name="wiek" value="mniej niż 15" >mniej niż 15 <br>
+		<input type="radio" name="wiek" value="15-19" >15-19 <br>
+		<input type="radio" name="wiek" value="20-29" >20-29 <br>
+		<input type="radio" name="wiek" value="30-39" >30-39 <br>
+		<input type="radio" name="wiek" value="40-60" >40-60 <br>
+		<input type="radio" name="wiek" value="więcej niż 60" >więcej niż 60 <br>
+		
+		<br>Jaką lubisz muzykę (możesz zaznaczyć więcej odpowiedzi) <br>
+		<input type="checkbox" name="muzyka" value="Rock" >Rock <br>
+		<input type="checkbox" name="muzyka" value="15-19" >Heavy Metal <br>
+		<input type="checkbox" name="muzyka" value="20-29" >Pop <br>
+		<input type="checkbox" name="muzyka" value="30-39" >Techno <br>
+		<input type="checkbox" name="muzyka" value="40-60" >Muzyka poważna <br>
+		<input type="checkbox" name="muzyka" value="więcej niż 60" >Inna (podaj jaka) <input name="TypMuzyka" ><br>
+		
+		<p>Jakiej przeglądarki internetowej używasz?</p>
+		<select name="Przeglądarka">
+			<option selected="selected">Internet Explorer</option>
+			<option>Netscape</option>
+			<option>Opera</option>
+			<option>Mozilla</option>
+			<option>Inna</option>
+		</select>
+		
+		<br>Jakie znasz systemy operacyjne (możesz wybrać kilka) <br>
+		<select multiple name="system">
+			<option>Dos</option>
+			<option>Windows</option>
+			<option>Linux</option>
+		</select>
+		
+		<p>Podaj swój komentarz:</p>
+		<textarea name="Komentarz" cols="50" rows="10">
+Proszę, wpisz tutaj jakiś komentarz...
+		</textarea>
+	</body>
+</html>

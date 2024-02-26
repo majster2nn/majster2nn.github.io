@@ -1,0 +1,25 @@
+body{
+	background-color: rgb(51,51,51);
+	padding: 10%;
+	color: rgb(176,176,145);
+	font-family: arial;
+	font-weight: 1000;
+	font-style: justify;
+}
+div{
+	text-indent: 10%;
+	line-height: 25px;
+}
+.brzechwa{
+	color: rgb(80,133,132);
+	
+}
+#tytul{
+	color: rgb(184,193,200);
+}
+#obraz{
+	float: right;
+}
+a{
+	color: #000000
+}
