@@ -10,6 +10,58 @@
 	</head>
 
 	<body>
-		
+		<h1>Urządzenia wejścia</h1>
+		<hr>
+		<a href="skaner">Skaner</a>|<a href="aparat">Aparat Cyfrowy</a>
+		<hr>
+		<h3 id="skaner">Skaner</h3>
+		Przekształca optyczne informacje na komputerowe dane; za pomocą czujników bada kolor i jasność odczytywanego obrazu; po przekazaniu informacji o obrazie do komputera można je w dowolny sposób modyfikować.
+		<h4>Parametry skanera:</h4>
+		<ul>
+			<li>wielkość obszaru skanowania,</li>
+			<li>rozdzielczość optyczna (mierzona w DPI) - gęstość elementów światłoczułych na listwie przesuwanej nad skanowaną ilustracją; im jest ich więcej, tym więcej szczegółów jest w stanie wychwycić; rozdzielczość podawana jest w postaci dwóch liczb (np. 300x600 dpi.); pierwsza z nich odnosi się do liczby elementów skanujących znajdujących się na jednym calu powierzchni elementu; każdy z takich elementów tworzy jeden piksel informacji w osi poziomej; druga liczba oznacza odległość (lub krok), o jaką ramię przesuwa się pomiędzy ekspozycjami. Liczba 600 dpi oznacza więc że każda nowa próbka jest tworzona co 1/600 cala.</li>
+			<li>głębia kolorów - ile bitów informacji potrzebnych jest do opisania koloru punktu w standardzie RGB - im większa jest to liczba, tym więcej kolorów skaner potrafi rozróżnić, np.: 
+			<table border="1">
+				<tr>
+					<th>GŁĘBIA [bit]</th>
+					<th>ILOĆŚĆ KOLORÓW</th>
+				</tr>
+				<tr>
+					<th>1</th>
+					<th>2</th>
+				</tr>
+				<tr>
+					<th>8</th>
+					<th>256</th>
+				</tr>
+				<tr>
+					<th>16</th>
+					<th>65 536</th>
+				</tr>
+				<tr>
+					<th>24</th>
+					<th>16 777 216</th>
+				</tr>
+			</table></li>
+			<li>rozdzielczość interpolowana - umiejętność sztucznego podwyższania rozdzielczości otrzymywanego obrazu cyfrowego; między wczytane punkty obrazu wstawiane są kolejne, których jasność i kolor wyliczone są przez program na podstawie wartości punktów sąsiednich, zwiększanie rozdzielczości interpolowanej zwiększa wielkość ilustracji, lecz obraz nie zawiera przez to więcej szczegółów.
+			<table border="1">
+				<tr>
+					<th><img src="images/skaner.jpg"></th>
+				</tr>
+				<tr>
+					<th>Zasada działania skanera, źródło PC World Computer.</th>
+				</tr>
+			</table>
+			</li>
+		</ul>
+		<hr>
+		<h3 id="aparat">Aparat Cyfrowy</h3>
+		<h4>Nie potrzebuje filmu fotograficznego; docierający do niego obraz trafia na matrycę LCD lub CMOS, gdzie jest przetwarzany i zapisywany w postaci cyfrowej (zazwyczaj na karcie pamięci Flash). Najważniejsze parametry: </h4>
+		<ul>
+			<li>rozdzielczość (wielkość matrycy), </li>
+			<li>technologia CCD lub CMOS, </li>
+			<li>zoom optyczny i cyfrowy.</li>
+		</ul>
+		<hr>
 	</body>
 </html>
