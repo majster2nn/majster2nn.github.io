@@ -1,8 +1,8 @@
-#header
+header
 {
 background-color: #357;
 margin-top: 10px;
-height: 150px;
+
 }
 #logo
 {
@@ -13,17 +13,17 @@ text-align: center;
 }
 #tytul
 {
-float: left;
+
 padding: 10px;
-width: 560px;
-font-size: 40px;
+width: 100%;
+font-size: 30px;
 color: white;
 text-align: center;
 line-height: 3;
 }
-#nav{
-padding-left: 20%;
-paddint-right: 20%;
+nav{
+padding-left: 10%;
+paddint-right: 10%;
 text-align: center;
 }
 .wybor
@@ -57,7 +57,7 @@ float: right;
 width: 15%;
 text-align: center;
 }
-#footer{
+footer{
 	background-color: #3a7;
 float: left;
 padding: 10px;
