@@ -1,0 +1,66 @@
+#header
+{
+background-color: #357;
+margin-top: 10px;
+height: 150px;
+}
+#logo
+{
+float: left;
+padding: 10px;
+width: 150px;
+text-align: center;
+}
+#tytul
+{
+float: left;
+padding: 10px;
+width: 560px;
+font-size: 40px;
+color: white;
+text-align: center;
+line-height: 3;
+}
+#nav{
+padding-left: 20%;
+paddint-right: 20%;
+text-align: center;
+}
+.wybor
+{
+float:left;
+min-width:50px;
+font-size:14px;
+padding: 10px;
+border-right: 3px solid #357;
+height: 20px;
+}
+.wybor:hover
+{
+background: #999;
+}
+#left{
+	background-color: #357;
+float: left;
+width: 15%;
+text-align: center;
+}
+#main{
+	background-color: #357;
+float: left;
+width: 70%;
+text-align: center;
+}
+#right{
+	background-color: #357;
+float: right;
+width: 15%;
+text-align: center;
+}
+#footer{
+	background-color: #3a7;
+float: left;
+padding: 10px;
+width: 100%;
+text-align: center;
+}
