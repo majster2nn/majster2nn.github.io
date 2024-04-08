@@ -1,0 +1,397 @@
+                                                
+                                                <!-- this script is provided by https://www.javascriptfreecode.com coded by: Kerixa Inc. -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sliding Cards</title>
+
+<!-- font awesome library include 4.7 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<!-- font library -->
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- css styles -->
+<style>
+ 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap'); 
+
+/* default light theme */
+:root, html{
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", arial, monospace;
+
+  --primary-color: #f45b69;
+  --secondary-color:#456990;
+  --background-color: white;
+  --button-color: black;
+  --button-bg-color: yellow;
+  --opacity: 0.75;
+
+
+  --background-color: darkgrey;
+}
+
+/* dark-mode theme */
+:root[data-theme="dark-mode"]{
+  
+
+}
+
+
+/* main styles */
+html, body{
+  margin: 0;
+  padding: 0;
+
+}
+a{text-decoration:none;}
+body
+{
+  background-color:#f2f2f2;
+  font-family: 'RobotoDraft', 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+*
+{
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+h5
+{
+  margin:0px;
+  font-size:1.4em;
+  font-weight:700;
+}
+
+p
+{
+  font-size:12px;
+}
+
+
+.header{
+  background: var( --primary-color);
+}
+
+.header h1,a{
+  color: white;
+  font-size: 5rem;
+}
+
+.reset{
+  background: var( --primary-color); 
+  margin: 0;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reset-tutorial{
+  padding: 0.25rem 0.5rem;
+  color: white;
+  background-color: var(--secondary-color);
+  border: 5px black solid;
+  border-radius: 0.5;
+
+  font-size: 1rem;
+  font-weight: 600;
+
+  transition: background-color 0.3s ease-in-out;
+}
+
+.reset-tutorial:hover{
+  background-color: darkgrey;
+  cursor: pointer;
+}
+
+.center
+{
+  height:100vh;
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* End Non-Essential  */
+
+.cards-container{
+  margin: 0;
+  padding: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+
+.property-card
+{
+  height:18em;
+  width:14em;
+  display:-webkit-box;
+  display:-ms-flexbox;
+  display:flex;
+  -webkit-box-orient:vertical;
+  -webkit-box-direction:normal;
+  -ms-flex-direction:column;
+  flex-direction:column;
+  position:relative;
+  -webkit-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -o-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  border-radius:16px;
+  overflow:hidden;
+  -webkit-box-shadow:  15px 15px 27px #e1e1e3, -15px -15px 27px #ffffff;
+  box-shadow:  15px 15px 27px #e1e1e3, -15px -15px 27px #ffffff;
+
+  margin: 2rem;
+}
+/* ^-- The margin bottom is necessary for the drop shadow otherwise it gets clipped in certain cases. */
+
+/* Top Half of card, image. */
+
+.property-image
+{
+  height:6em;
+  width:14em;
+  padding:1em 2em;
+  position:Absolute;
+  top:0px;
+  -webkit-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -o-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  background-image:url('https://www.javascriptfreecode.com/files/10-what-is-landscape-photography.jpg');
+  background-size:cover;
+  background-repeat:no-repeat;
+}
+
+/* Bottom Card Section */
+
+.property-description
+{
+  background-color: #FAFAFC;
+  height:12em;
+  width:14em;
+  position:absolute;
+  bottom:0em;
+  -webkit-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -o-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  padding: 0.5em 1em;
+  text-align:center;
+}
+
+/* Social Icons */
+
+.property-social-icons
+{
+  width:1em;
+  height:1em;
+  background-color:black;
+  position:absolute;
+  bottom:1em;
+  left:1em;
+  -webkit-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -o-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+/* Property Cards Hover States */
+
+.property-card:hover .property-description
+{
+  height:0em;
+  padding:0px 1em;
+}
+.property-card:hover .property-image
+{
+  height:18em;
+}
+
+.property-card:hover .property-social-icons
+{
+  background-color:white;
+}
+
+.property-card:hover .property-social-icons:hover
+{
+  background-color:blue;
+  cursor:pointer;
+}
+
+/* Animation */
+
+.property-card{
+  transform: translateY(75px);
+  opacity: 0; 
+}
+.slide-up{
+  animation: slide_up 0.5s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slide_up{
+  0%{
+    transform: translateY(75px);
+    opacity: 0;
+  }
+  100%{
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+</style>
+</head>
+
+<body>
+
+
+<main>
+  
+
+  <section class="header center">
+    <h1>
+<a href="http://www.javascriptfreecode.com">Javascript Free Code</a></h1>
+    
+  </section>
+  <section class="reset">
+    <button class="reset-tutorial">Reset Tutorial</button>
+
+  </section>
+
+  <section class="cards-container">
+
+    <div class="property-card">
+      <a href="#">
+        <div class="property-image">
+          <div class="property-image-title">
+          
+          </div>
+        </div>
+      </a>
+
+      <div class="property-description">
+        <h5> Card Title 1 </h5>
+        <p>Lorem Ipsum Dipsum hortata. Mixcall Horcho. Mixwell Chingo. More Bingo. Lorem Ipum doth be hard.</p>
+        
+      </div>
+
+      <a href="#">
+        <div class="property-social-icons">
+        </div>
+      </a>
+    </div>
+
+    
+    <div class="property-card">
+      <a href="#">
+        <div class="property-image">
+          <div class="property-image-title">
+          
+          </div>
+        </div>
+      </a>
+
+      <div class="property-description">
+        <h5> Card Title 2 </h5>
+        <p>Lorem Ipsum Dipsum hortata. Mixcall Horcho. Mixwell Chingo. More Bingo. Lorem Ipum doth be hard.</p>
+        
+      </div>
+
+      <a href="#">
+        <div class="property-social-icons">
+        </div>
+      </a>
+    </div>
+
+    
+    <div class="property-card">
+      <a href="#">
+        <div class="property-image">
+          <div class="property-image-title">
+          
+          </div>
+        </div>
+      </a>
+
+      <div class="property-description">
+        <h5> Card Title 3 </h5>
+        <p>Lorem Ipsum Dipsum hortata. Mixcall Horcho. Mixwell Chingo. More Bingo. Lorem Ipum doth be hard.</p>
+        
+      </div>
+
+      <a href="#">
+        <div class="property-social-icons">
+        </div>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<script>
+
+
+/*   
+
+Tutorial Description
+
+Upwards sliding cards as you scroll down the page using the Intersection Observer API. 
+
+*/
+// set up intersection observer 
+let cards = document.querySelectorAll(".property-card");
+let reset_btn = document.querySelector(".reset-tutorial");
+
+const options = {
+  root: null,
+  rootMargin: "0px",
+  threshold: 0.5
+}
+
+let callback = (entries, observer) => {
+
+  entries.forEach( (entry) => {
+    
+    if(entry.intersectionRatio >= 0.4){
+
+      cards.forEach(card => {
+        card.classList.add("slide-up");
+      })
+      observer.unobserve(entry.target);
+
+    }
+  })
+}
+
+reset_btn.addEventListener("click", function(event){
+
+  cards.forEach(card => {
+    card.classList.remove("slide-up");
+  })
+
+  observer.observe(cards[0]);
+})
+
+// Call observer intially
+let observer = new IntersectionObserver(callback, options);
+observer.observe(cards[0]);
+
+</script>
+<a href="../skrypty.html">Powrót</a>
+</body>
+</html>                                           <a target='_blank' href='https://www.javascriptfreecode.com' style='font-size: 8pt; text-decoration: none'>JavaScript Best Codes</a>                                                
+                                            

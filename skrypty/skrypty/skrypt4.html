@@ -1,0 +1,508 @@
+                                                
+                                                <!-- this script is provided by https://www.javascriptfreecode.com coded by: Kerixa Inc. -->
+
+                    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player With Progress Bar</title>
+
+<!-- font awesome library include 4.7 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<!-- css styles -->
+<style>
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: arial, monospace;
+}
+
+body{
+  background-color: lightgrey;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vid-player-container{
+  width: 960px;
+}
+
+.vid-player{
+  width: 100%;
+  height: 360px;
+
+  position: relative;
+  overflow: hidden;
+  background-color: black;
+}
+
+.vid-player video{
+
+  position: absolute;
+  left: 50%;
+  top: 0;
+
+  transform: translate(-50%, 0%);
+}
+
+.vid-player .controls{
+
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+
+}
+
+.vid-player .controlbar{
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.vid-player .controlbar .controlbar__playback, .vid-player .controlbar .controlbar__options{
+  padding: 0.5rem;
+}
+
+.vid-player .controlbar * {
+  color: white;
+}
+
+.vid-player .controls .controlbar__playback .vid_stats{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 0.75rem;
+}
+
+.vid-player .controls .controlbar__playback .volume_control{
+  width: 60px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.vid-player .controls .controlbar__playback .volume_control input{
+  width: 100%;
+}
+
+.vid-player .controls .controlbar__playback, .vid-player .controls .controlbar__options{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+
+.controlbar__playback, .controlbar__options{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.controlbar__playback > div, .controlbar__playback > span, .controlbar__options > div, .controlbar__options > span{
+  margin: 0 0.25rem;
+  border-radius: 50%;
+}
+.controlbar__playback span, .controlbar__options span{
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+
+  transition: background-color 0.25s ease-in-out;
+}
+.controlbar__playback span:hover, .controlbar__options span:hover{
+  background-color: rgba(0, 0, 0, 0.5); 
+  cursor: pointer;
+}
+
+.controlbar__playback span i{
+
+}
+
+.controlbar__playback span i:hover:after{
+}
+
+.seekbar{
+  height: 2px;
+  background-color: aqua;
+  position: relative;
+
+}
+
+.seekbar:hover{
+  cursor: pointer;
+}
+
+
+.seekbar span{
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: aqua;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  box-shadow: 0 0 1px 1px aqua;
+ 
+  transform: translate(-50%, calc(-1 * (50% - 1px))); 
+}
+.seekbar span:after{
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 50%;
+}
+
+.moveControlsDown{
+  animation: moveControlsDown 0.25s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes moveControlsDown {
+  0%{
+    transform: translateY(0%);
+    opacity: 1;
+  }
+  100%{
+    transform: translateY(100%);
+    opacity: 0.25;
+  }
+}
+
+.moveControlsUp{
+  animation: moveControlsUp 0.25s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes moveControlsUp {
+  0%{
+    transform: translateY(100%);
+    opacity: 0.25;
+  }
+  100%{
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="vid-player-container"S>
+
+  <div class="vid-player">
+    <video>
+      <source>
+      Your browser does not support the video tag.
+    </video>
+
+    <div class="controls">
+
+      <div class="seekbar js-seekbar">
+        <span></span>
+      </div>
+
+      <div class="controlbar">
+        
+        <div class="controlbar__playback">
+
+
+          <span class="fa-stack fa-1x js-play-pause">
+            <i class="fa fa-play fa-sm " aria-hidden="true"></i>
+          </span>
+
+          <span class="fa-stack fa-1x js-volume-mute">
+            <i class="fa fa-volume-down fa-sm" aria-hidden="true"></i>
+          </span>
+
+          <div class="volume_control">
+              <input type="range" class="js-volume-control" max="100">
+          </div>
+
+          <div class="vid_stats">
+		  
+          </div>
+        </div>
+
+        <div class="controlbar__options">
+        
+		   <a href="http://www.javascriptfreecode.com">Javascript Free Code</a>
+          <span class="fa-stack fa-1x js-repeat">
+            <i class="fa fa-repeat fa-sm" aria-hidden="true"></i> 
+          </span>
+
+          <span class="fa-stack fa-1x js-fullscreen">
+            <i class="fa fa-arrows-alt fa-sm" aria-hidden="true"></i>
+          </span>
+
+          
+          
+        </div>
+      </div>
+
+      <div class="playlist">
+
+      </div>
+    </div>
+  </div>
+
+</div>
+<script>
+
+/*   
+
+Tutorial Description
+
+Sometimes you want to customize video playback on your website to keep the look consistent across all browsers or to add additional features. Here is an customized video player built using HTML5, CSS and JavaScript.
+
+*/
+
+// initialize video player
+const initPlayer = () => {
+
+  // Load assets
+  const medias = [
+    {
+      source: "rickroll.mp4", type: "video/mp4", useable: 1,
+    }
+  ]
+
+  const vid_source = document.querySelector("source");
+  const video = document.querySelector("video");
+  let video_duration;
+  let volume_previous;
+  let repeatMode = false;
+  let muteMode = false;
+  let fullscreenMode = false;
+ 
+  medias.forEach( media => {
+
+    if(media.useable == 1){
+      video.setAttribute("src", media.source);
+      video.setAttribute("type", media.type);
+    }
+
+  })
+
+  video.load(); // loads video
+
+
+  // initializes default settings
+  video.onloadeddata = (event) => {
+    const vid_stats = document.querySelector(".vid_stats");
+    vid_stats.textContent = "00:00 / " + formatTime(event.target.duration);
+    video_duration = event.target.duration;
+    video.volume = 0.5;
+
+    volume_previous = video.volume;
+  }
+
+  // event listener when currentTime is changed
+  video.ontimeupdate = (event) => {
+
+    // update time stats
+    const vid_stats = document.querySelector(".vid_stats");
+    vid_stats.textContent = formatTime(video.currentTime) + " / " + formatTime(event.target.duration);
+
+    // update seekbar stats
+    const seekbar = document.querySelector(".seekbar");
+    const seekbar_selector = seekbar.querySelector("span");
+    seekbar_selector.style.transform = "translate(" + (video.currentTime / event.target.duration) * seekbar.clientWidth + "px, calc(-1 * (50% - 1px)))";
+
+    // repeat video
+    if(repeatMode && video.currentTime == event.target.duration){
+      video.currentTime = 0;
+      video.play();
+    }
+  }
+
+  // fullscreen mode
+  video.onfullscreenchange = (event) => {
+
+    const icon = document.querySelector(".js-fullscreen > i");
+
+    console.log(event.currentTarget)
+ 
+    if(document.fullscreenElement){
+      fullscreenMode = true;
+      icon.style.color = "tomato";
+    }else{
+      fullscreenMode = false;
+      icon.style.color = "white";
+    }
+  }
+
+  // hide video controls on hover
+  const vid_playerMouseOver = document.querySelector(".vid-player").addEventListener("mouseover", event => {
+    
+    const controls = event.currentTarget.querySelector(".controls");
+
+
+      if(controls.classList.contains("moveControlsDown")){
+        controls.classList.remove("moveControlsDown");
+        controls.classList.add("moveControlsUp");
+      }
+
+  });
+
+  // show video controls on hover
+  const vid_playerMouseLeave = document.querySelector(".vid-player").addEventListener("mouseleave", event => {
+   
+    setTimeout( () => {
+
+      const controls = document.querySelector(".controls");
+      controls.classList.remove("moveControlsUp");
+      controls.classList.add("moveControlsDown");
+    }, 1000);
+  });
+
+
+  // seekbar
+  const seekbar = document.querySelector(".js-seekbar").addEventListener("click", (event) => {
+    const seekbarLength = event.currentTarget.getBoundingClientRect().width;
+    const posX = event.offsetX;
+    video.currentTime = (posX / seekbarLength) * video_duration;
+  })
+
+
+  // volume listener
+  const volume_control = document.querySelector(".js-volume-control").addEventListener("change", (event) => {
+    volume_previous = event.currentTarget.value / 100;
+     
+    if(!muteMode){
+      video.volume = volume_previous;
+    }
+  })
+
+
+  // mute listener 
+  const volume_mute = document.querySelector(".js-volume-mute").addEventListener("click", (event) => {
+
+    const icon = event.currentTarget.querySelector("i");
+    
+    if(video.volume > 0){
+      video.volume = 0;
+      icon.classList.remove("fa-volume-down");
+      icon.classList.add("fa-volume-off");
+
+      muteMode = true;
+    }else{
+      video.volume = volume_previous;
+      icon.classList.remove("fa-volume-up");
+      icon.classList.add("fa-volume-down");
+
+      muteMode = false;
+    }
+    
+  });
+
+  // play and pauses the video
+  const play_pause = document.querySelector(".js-play-pause").addEventListener("click", (event) => {
+
+    const icon = event.currentTarget.querySelector("i");
+
+    if(video.paused){
+      video.play();
+      icon.classList.remove("fa-play");
+      icon.classList.add("fa-pause");
+    }else{
+      video.pause();
+      icon.classList.remove("fa-pause");
+      icon.classList.add("fa-play");
+    }
+
+  })
+
+  // toggles repeat on or off
+  const repeat = document.querySelector(".js-repeat").addEventListener("click", (event) => {
+
+    const icon = event.currentTarget.querySelector("i");
+    repeatMode = !repeatMode;
+    repeatMode ? icon.style.color = "tomato" : icon.style.color = "white"
+
+  })
+
+  // toggles fullscreen
+  const fullScreen = document.querySelector(".js-fullscreen").addEventListener("click", (event) => {
+
+    const icon = event.currentTarget.querySelector("i");
+    fullscreenMode = !fullscreenMode;
+    fullscreenMode ? icon.style.color = "tomato" : icon.style.color = "white"
+
+    const vid_player = document.querySelector(".vid-player");
+    const video = vid_player.querySelector("video");
+
+
+    activateFullscreen(video, {navigationUI: "show"});
+  
+  })
+
+  // formats the time to display the available minute and seconds
+  const formatTime = (time) => {
+    const min = Math.floor(time / 60);
+    const seconds = Math.round(time - min * 60);
+    let results;
+
+    if(time >= 60){
+      results = (min < 10 ?  "0" + min : min) + ":" + (seconds < 10 ?  "0" + seconds : seconds);
+
+    }else{
+      results = "00:" + (seconds < 10 ?  "0" + seconds : seconds);
+    }
+
+    return results;
+  }
+
+  function activateFullscreen(element, options = {navigationUI : "auto"}) {
+    if(element.requestFullscreen) {
+      element.requestFullscreen(options);        // W3C spec
+    }
+    else if (element.mozRequestFullScreen) {
+      element.mozRequestFullScreen(options);     // Firefox
+    }
+    else if (element.webkitRequestFullscreen) {
+      element.webkitRequestFullscreen(options);  // Safari
+    }
+    else if(element.msRequestFullscreen) {
+      element.msRequestFullscreen(options);      // IE/Edge
+    }
+  };
+
+  function deactivateFullscreen() {
+    if(document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.mozCancelFullScreen) {
+      document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen();
+    }
+  };
+
+}
+
+
+initPlayer();
+
+
+</script>
+<a href="../skrypty.html">Powrót</a>
+</body>
+</html>                                               
+                                                                               
+                                            <a target='_blank' href='https://www.javascriptfreecode.com' style='font-size: 8pt; text-decoration: none'>JavaScript Best Codes</a>                                                
+                                            
