@@ -10,7 +10,10 @@
       (async function () {
         await cheerpjInit();
         cheerpjCreateDisplay(800, 600);
-        await cheerpjRunJar("/app/projektZal/gra/TextDemo.jar");
+        await cheerpjRunMain(
+  "org.gra.Main",
+  "/app/projektZal/gra/unnamed.jar",
+);
       })();
     </script>
   </body>
