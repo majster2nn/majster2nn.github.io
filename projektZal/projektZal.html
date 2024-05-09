@@ -1,0 +1,78 @@
+<!doctype html>
+
+<html lang="pl">
+	<head>
+		<meta charset="utf-8">
+		<title>Projekt zaliczeniowy</title>
+		<meta name="description" content="szkoła, lekcje, temat, nauka, html">
+		<meta name="keywords" content="szkoła, lekcje, temat, nauka, html">
+		<meta name="author" content="Stanisław Dereń">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+	</head>
+	
+	<body>
+		<header>
+			<div><img id="logo" src="logo.png"></div>
+			<div id="tytul">Moje hobby aka "Czym jest Java?"</div>
+			<div style="clear: both;"></div>
+		</header>
+		<nav>
+			<ul>
+				<li><a class="wybor">Przykłady kodu Java</a></li>
+				<li><a href="gra/gra.html" class="wybor">Projekt gry w Java</a></li>
+				<li><a class="wybor">Galeria</a></li>
+				<li><a class="wybor">Źródła</a></li>
+			</ul>
+		</nav>
+		<section>
+			<article id="left">
+				<table>
+					<tr>
+						<th><img class="obrazy" src="obrazy/przykładJavaKlasa.png"></th>
+					</tr>
+					<tr>
+						<th>Przykład deklaracji klasy w Java</th>
+					</tr>
+					<tr>
+						<th><img class="obrazy" src="obrazy/przykładJavaDziedziczenie.png"></th>
+					</tr>
+					<tr>
+						<th>Przykład dziedziczenia klasy w Java</th>
+					</tr>
+				</table>
+			</article>
+		</section>
+		<section>
+			<article id="main">
+				Temat mojego projektu to: "Czym jest Java?". <br>
+				Otóż Java to: współbieżny, oparty na klasach, obiektowy język programowania ogólnego zastosowania. 
+				Został stworzony przez grupę roboczą pod kierunkiem Jamesa Goslinga z firmy Sun Microsystems. 
+				Java jest językiem tworzenia programów źródłowych kompilowanych do kodu bajtowego, czyli postaci wykonywanej przez maszynę wirtualną.
+				<br><br>
+				Java według moich doświadczeń jest jednym z najprostszych do nauki a zarazem elastycznych języków programowania,
+				 w porównaniu do języków np: C++ (dużo cięższego chociaż posiadającego więcej możliwości przy jednoczesnym posiadaniu niesamowitej prędkości)
+				 czy też Python (prostrzego i nadal posiadającego wiele możliwości jednakże dużym kosztem prędkości).
+				<br><br>
+				Programowanie w Javie nie jest jednak tak kolorowe jakby się mogło wydawać. Java cechuje się nieskutecznym zarządzaniem zasobami komputera, przede wszystkim RAMem,
+				 ponieważ zarządza ona nim w trybie odśmiecacza. Tryb odśmiecacza można wytłumaczyć na zasadzie wynoszenia śmieci, najczęściej są one wyrzucane kiedy kosz jest pełen,
+				 w Javie naszym koszem jest RAM a śmieciami niepotrzebne, już przetworzone dane.
+				<br><br>
+				Java znalazła swoje miejsce w takich dziedzinach programowania jak aplikacje czy też gry, ze względu na swą ogólnodostępność i wsparcie między systemami bazowanymi
+				na jądrze Linux czy też Windows. Rozwojowi Java sprzyja także otwarta licencja GNU GPL pozwalająca wszystkim na korzystanie jak i usprawnianie języka.
+			</article>
+		</section>
+		<section>
+			<article id="right">
+
+			</article>
+		</section>
+		<footer><a href="../index.html">Powrót</a></footer>
+		<div id="myModal" class="modal">
+			<span class="close">&times;</span>
+			<img class="modal-content" id="img01">
+		</div>
+		<script src="script.js"></script>
+	</body>
+	
+</html>
