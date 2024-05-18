@@ -4,6 +4,16 @@ body{
 #glowny{
 	background-color: rgb(62, 99, 99);
 }
-#linki{
-	
+#zalicz:hover{
+	color:yellow;
+}
+#zalicz:visited{
+	color:yellow;
+}
+#zalicz{
+	color:yellow;
+}
+#kontenerZalicz{
+	text-align: center;
+	margin: auto;
 }
