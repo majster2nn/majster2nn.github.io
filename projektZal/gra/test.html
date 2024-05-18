@@ -10,7 +10,10 @@
       (async function () {
         await cheerpjInit();
         cheerpjCreateDisplay(800, 600);
-        await cheerpjRunJar("/app/gra.jar");
+        await cheerpjRunMain(
+        "main.Main",
+        "/app/gra.jar:/app/gra.jar",
+        );
       })();
     </script>
   </body>
