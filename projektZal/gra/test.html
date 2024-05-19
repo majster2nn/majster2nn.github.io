@@ -6,15 +6,12 @@
     <script src="https://cjrtnc.leaningtech.com/3.0/cj3loader.js"></script>
   </head>
   <body>
-    <script>
+		<script>
       (async function () {
         await cheerpjInit();
-        cheerpjCreateDisplay(800, 600);
-        await cheerpjRunMain(
-        "main.Main",
-        "/app/gra.jar:/app/gra.jar",
-        );
-      })();
-    </script>
+        cheerpjCreateDisplay(960, 576);
+		await cheerpjRunJar("/app/gra.jar");
+      	})();
+		</script>
   </body>
 </html>
