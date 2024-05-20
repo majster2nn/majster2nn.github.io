@@ -1,0 +1,105 @@
+<!doctype html>
+
+<html lang="pl">
+	<head>
+		<meta charset="utf-8">
+		<title>Projekt zaliczeniowy</title>
+		<meta name="description" content="szkoła, lekcje, temat, nauka, html">
+		<meta name="keywords" content="szkoła, lekcje, temat, nauka, html">
+		<meta name="author" content="Stanisław Dereń">
+		<link rel="stylesheet" type="text/css" href="../style.css">
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+		<script src="https://cjrtnc.leaningtech.com/3.0/cj3loader.js"></script>
+	</head>
+	
+	<body>
+		<header>
+			<div><img id="logo" src="logo.png"></div>
+			<div id="tytul">Moje hobby aka "Czym jest Java?"</div>
+			<div style="clear: both;"></div>
+		</header>
+		<nav>
+			<ul>
+				<li><a href="../projektZal.html" class="wybor">Główna</a></li>
+				<li><a class="wybor">Przykłady kodu Java</a></li>
+				<li><a href="../gra/gra.html" class="wybor">Projekt gry w Java</a></li>
+				<li><a href="../galeria/galeria.html" class="wybor">Galeria</a></li>
+				<li><a href="../zrodla/zrodla.html" class="wybor">Źródła</a></li>
+			</ul>
+		</nav>
+		<section>
+			<article id="main2" >
+			Przykład kodu wymieniającego wartości między zmiennymi z wykorzystaniem dodatkowej zmiennej:
+				<pre class = "kody">
+public class SwapNumbers {
+
+    public static void main(String[] args) {
+
+        float first = 1.20f, second = 2.45f;
+
+        System.out.println("--Before swap--");
+        System.out.println("First number = " + first);
+        System.out.println("Second number = " + second);
+
+        // Value of first is assigned to temporary
+        float temporary = first;
+
+        // Value of second is assigned to first
+        first = second;
+
+        // Value of temporary (which contains the initial value of first) is assigned to second
+        second = temporary;
+
+        System.out.println("--After swap--");
+        System.out.println("First number = " + first);
+        System.out.println("Second number = " + second);
+    }
+}
+			</pre>
+			Przykład kodu sprawdzający czy liczba podana przez użytkownika jest parzysta czy też nie z wykorzystaniem modulo:
+			<pre class="kody">
+import java.util.Scanner;
+
+public class EvenOdd {
+
+    public static void main(String[] args) {
+
+        Scanner reader = new Scanner(System.in);
+
+        System.out.print("Enter a number: ");
+        int num = reader.nextInt();
+
+        if(num % 2 == 0)
+            System.out.println(num + " is even");
+        else
+            System.out.println(num + " is odd");
+    }
+}
+			</pre>
+			Przykład kodu sprawdzający która z trzech liczb jest najwieksza:
+			<pre class = "kody">
+public class Largest {
+
+    public static void main(String[] args) {
+
+        double n1 = -4.5, n2 = 3.9, n3 = 2.5;
+
+        if( n1 >= n2 && n1 >= n3)
+            System.out.println(n1 + " is the largest number.");
+
+        else if (n2 >= n1 && n2 >= n3)
+            System.out.println(n2 + " is the largest number.");
+
+        else
+            System.out.println(n3 + " is the largest number.");
+    }
+}
+			</pre>
+			</article>
+		</section>
+		<div id="myModal" class="modal">
+			<span class="close">&times;</span>
+			<img class="modal-content" id="img01">
+		</div>
+	</body>
+</html>
